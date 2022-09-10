@@ -1,50 +1,34 @@
 #include <stdio.h>
-#include <stdlib.h>
+
 /**
- * main - main block
+ * main - Printing combinations of two two-digit numbers.
  * Description: Write a program that prints all possible
- * different combinations of two digits
- * Return: 0
+ * Return: Always 0.
  */
 int main(void)
 {
-int c;
-int d;
-int e;
-int f = 0;
 
-while (f < 10)
-{
-	e = 0;
-	while (e < 10)
+	int nb1, nb2;
+
+	for (nb1 = 0; nb1 <= 98; nb1++)
 	{
-		d = 0;
-		while (d < 10)
+		for (nb2 = nb1 + 1; nb2 <= 99; nb2++)
 		{
-			c = 0;
-			while (c < 10)
-			{
-				if (!(f == c && e == d))
-				{
-					putchar('0' + f);
-					putchar('0' + e);
-					putchar(' ');
-					putchar('0' + d);
-					putchar('0' + c);
-					if (!(f + e == 18 && c + d == 17 && d == 9))
-					{
-						putchar(',');
-						putchar(' ');
-					}
-				}
-				c++;
-			}
-			d++;
+			putchar((nb1 / 10) + '0');
+			putchar((nb1 % 10) + '0');
+			putchar(' ');
+			putchar((nb2 / 10) + '0');
+			putchar((nb2 % 10) + '0');
+
+			if (nb1 == 98 && nb2 == 99)
+				break;
+
+			putchar(',');
+			putchar(' ');
 		}
-		e++;
 	}
-	f++;
-}
-putchar('\n');
-return (0);
+
+	putchar('\n');
+
+	return (0);
 }
