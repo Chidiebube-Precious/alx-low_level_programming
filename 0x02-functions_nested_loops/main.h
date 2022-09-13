@@ -1,5 +1,5 @@
-#1findef 0x02-functions_nested_loops
-#define 0x02-functions_nested_loops
+#ifindef  HOLBERTON_H_INCLUDED
+#define  HOLBERTON_H_INCLUDED
 
 int _putchar(char);
 void print_alphabet(void);
