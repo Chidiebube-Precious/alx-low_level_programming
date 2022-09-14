@@ -42,7 +42,7 @@ while (a <= n)
 		if (b < n)
 		{
 			_putchar(',');
-			putchar(' ');
+			_putchar(' ');
 		}
 	}
 	_putchar('\n');
