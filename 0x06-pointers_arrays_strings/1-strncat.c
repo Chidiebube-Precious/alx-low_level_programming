@@ -1,4 +1,4 @@
-include "main.h"
+#include "main.h"
 /**
  *_strncat - concatenates two strings but add inputted number of bytes
  *@dest: String that will be appended upon
@@ -6,7 +6,6 @@ include "main.h"
  *@n: integer parameter to compare index to
  *Return: returns new concatenated string
  */
-
 char *_strncat(char *dest, char *src, int n)
 {
 
