@@ -1,6 +1,10 @@
 #include <stdio.h>
-
-int main.h(void)
+/**
+ * main -check the code
+ *
+ * Return: Always 0.
+ */
+int main(void)
 {
 
 	int n;
