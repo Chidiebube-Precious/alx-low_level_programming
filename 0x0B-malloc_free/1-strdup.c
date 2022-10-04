@@ -3,7 +3,7 @@
 #include <stdlib.h>
 
 /**
- * strdup - Entry point
+ * _strdup - Entry point
  * @str: string we need to duplicate
  * Return: a pointer to the duplicated string or NULL
  */
