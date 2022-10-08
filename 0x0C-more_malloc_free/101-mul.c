@@ -89,7 +89,7 @@ int check_for_digits(char **av)
  *
  * Return: void
  */
-void init(char *str, int l)
+void init(char *str, int 1)
 {
 	int i;
 
