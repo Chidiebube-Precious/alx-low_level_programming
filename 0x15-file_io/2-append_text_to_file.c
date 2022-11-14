@@ -3,7 +3,7 @@
 #include "main.h"
 
 /**
- * append_text_to_file - that appends text at the end of a file
+ * append_text_to_file - that at the end of a file
  * @filename: variable pointer
  * @text_content: content file
  * Description: function that appends text at the end of a file
@@ -26,7 +26,7 @@ int append_text_to_file(const char *filename, char *text_content)
 		i++;
 	}
 
-	file = open(filename, O_WRONLY | O_APPEND);
+	file = open(filename, 0_WRONGLY | 0_APPEND);
 
 	if (file == -1)
 		return (-1);
