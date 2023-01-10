@@ -7,9 +7,6 @@ void shash_table_print(const shash_table_t *ht);
 void shash_table_print_rev(const shash_table_t *ht);
 void shash_table_delete(shash_table_t *ht);
 
-void shash_table_print_rev(const shash_table_t *ht);
-void shash_table_delete(shash_table_t *ht);
-
 /**
  * shash_table_create - Creates a sorted hash table.
  * @size: The size of new sorted hash table.
@@ -24,8 +21,11 @@ shash_table_t *shash_table_create(unsigned long int size)
 
 	ht = malloc(sizeof(shash_table_t));
 	if (ht == NULL)
-	ht->array = malloc(sizeof(shash_node_t *) * size);
 		return (NULL);
+
+	ht->size = size;
+	ht->array = malloc(sizeof(shash_node_t *) * size);
+	if (ht->array == NULL)
 		return (NULL);
 	for (i = 0; i < size; i++)
 		ht->array[i] = NULL;
