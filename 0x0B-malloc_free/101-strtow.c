@@ -1,97 +1,112 @@
 #include "main.h"
 
 /**
- * len - returns length of str
- * @str: string to be counted
- *
- * Return: length of the string
+ * _strlen - find length of a string
+ * @s: string
+ * Return: int
  */
-int len(char *str)
-{
-	int len = 0;
 
-	if (str != NULL)
-	{
-		while (str[len])
-			len++;
-	}
-	return (len);
+
+int _strlen(char *s)
+{
+int size = 0;
+for (; s[size] != '\0'; size++)
+;
+return (size);
 }
 
 /**
- * num_words - counts the number of words in str
- * @str: string to be used
- *
- * Return: number of words
+ * *str_concat - concatenates two strings
+ * @s1: string 1
+ * @s2: string 2
+ * Return: pointer
  */
-int num_words(char *str)
-{
-	int i = 0, words = 0;
 
-	while (i <= len(str))
-	{
-		if ((str[i] != ' ') && (str[i] != '\0'))
-		{
-			i++;
-		}
-		else if (((str[i] == ' ') || (str[i] == '\0' && i && (str[i - 1]] != ' '))
-		{
-			words += 1;
-			i++;
-		}
-		else
-		{
-			i++;
-		}
-	}
-	return (words);
+char *strtow(char *str, char c);
+{
+int size, i;
+char *m;
+
+size = _strlen(str);
+
+m = malloc((size + 1) * sizeof(char) + 1);
+if (m == 0)
+	return (0);
+
+for (i = 0; i <= size; i++)
+	m[i] = str[i];
+
+m[i + 1] = c;
+m[i + 2] = '\0';
+
+return (m);
 }
+
+
 /**
- * strtow - splits a string into words
- * @str: string to be splitted
- *
- * Return: pointer to the array of splitted words
+ * *nbr_spaces - return the number of occurent of a string
+ * @s: string to check
+ * Return: int
+ */
+
+unsigned int nbr_spaces(char *s)
+{
+	int i, cmpt = 0;
+
+	for (i = 0; s[i + 1] != '\0'; i++)
+	{
+		if (s[i]  == ' ' && s[i + 1] != ' ')
+			cmpt++;
+	}
+
+	return (cmpt + 1);
+}
+
+
+/**
+ * strtow - split a sentence into multiple words.
+ * @str: the string passed as argument.
+ * Return: tokens
  */
 char **strtow(char *str)
 {
-	char **split;
-	int i, j = 0, tmp = 0, size = 0, words = num_words(str);
+int i;
+int spaces = nbr_spaces(str);
+char **tokens = NULL;//malloc(sizeof(char *)(spaces));
+char *token;
+int checkingSpace = 0;
+int word = 0;
 
-	if (words == 0)
-		return (NULL);
-	split = (char **)malloc(sizeof(char *) * (words + l));
-	if (split != NULL)
+if (!tokens)
+{
+	printf("Failed");
+	return (0);
+}
+
+
+printf("looping");
+for (i = 0; str[i] != '\0'; i++)
+{
+	if (str[i] == ' ')
 	{
-		for (i = 0; i <= len(str) && words; i++)
+		if (checkingSpace == 0)
 		{
-			if ((str[i] != ' ') && (str[i] != '\0'))
-				size++;
-			else if (((str[i] == ' ') || (str[i] == '\0')) && (str[i - 1] != ' '))
-			{
-				split[j] = (char *)malloc(sizeof(char) * size) + 1];
-				if (split[j] != NULL)
-				{
-					while (temp < size)
-					{
-						split[j][temp] = str[(i - size) + temp];
-						temp++;
-					}
-					split[j][temp] = '\0';
-					size = temp = 0;
-					j++;
-				}
-				else
-				{
-					while (j-- >= 0)
-						free(split[j]);
-					free(split);
-					return (NULL);
-				}
-			}
+			word++;
+			checkingSpace = 1;
 		}
-		split[word] = NULL;
-		return (split);
 	}
 	else
-		return (NULL);
+	{
+		printf("1");
+		token = tokens[word];
+		free(tokens[word]);
+		str_addChar(token, str[i]);
+		checkingSpace = 0;
+	}
+
+}
+
+tokens[i] = NULL;
+
+return (tokens);
 }
